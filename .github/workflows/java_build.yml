@@ -21,10 +21,10 @@ jobs:
         java-version: '8' # Specify your Java version
         distribution: 'temurin' # Choose the distribution (e.g., temurin, zulu, adopt)
 
-    # Step 4: Compile the Java program
+    # Step 3: Compile the Java program
     - name: Run Java Program
       run: javac -d sample src/main/java/com/example/App.java
     
-    # Step 5: Run the java program
+    # Step 4: Run the java program
     - name: Run Java Program
       run: java -cp sample com.example.App
