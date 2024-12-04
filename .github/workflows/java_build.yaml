@@ -1,0 +1,30 @@
+name: Run Java Program
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 2: Set up JDK *
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '8' # Specify your Java version
+        distribution: 'temurin' # Choose the distribution (e.g., temurin, zulu, adopt)
+
+    # Step 4: Compile the Java program
+    - name: Run Java Program
+      run: javac -d out src/main/java/com/example/App.java
+    
+    # Step 5: Run the java program
+    - name: Run Java Program
+      run: java com.example.App
