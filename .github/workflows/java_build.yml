@@ -22,10 +22,8 @@ jobs:
     - name: Compile the java program
       run: |
         mkdir output
-        pwd
-        find / -type d -name output
         javac -d output src/main/java/com/example/App.java
-        ls -al output
+        ls output
     
     - name: Run Java Program
       run: java -cp output com.example.App
