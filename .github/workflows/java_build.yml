@@ -22,7 +22,9 @@ jobs:
     - name: Compile the java program
       run: |
         mkdir output
+        pwd
         javac -d output src/main/java/com/example/App.java
+        ls -al output
     
     - name: Run Java Program
       run: java -cp output com.example.App
