@@ -23,8 +23,8 @@ jobs:
 
     # Step 4: Compile the Java program
     - name: Run Java Program
-      run: javac -d out src/main/java/com/example/App.java
+      run: javac -d sample src/main/java/com/example/App.java
     
     # Step 5: Run the java program
     - name: Run Java Program
-      run: java com.example.App
+      run: java -cp sample com.example.App
