@@ -1,4 +1,4 @@
-name: Run Java Program
+name: Run Java Program on Linux machine
 
 on:
   push:
@@ -6,30 +6,23 @@ on:
       - master
 
 jobs:
-  build-and-run:
+  run_java_program:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Check out the repository
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # Step 2: Set up JDK *
     - name: Set up JDK
       uses: actions/setup-java@v4
       with:
-        java-version: '8' # Specify your Java version
-        distribution: 'temurin' # Choose the distribution (e.g., temurin, zulu, adopt)
+        java-version: '8' 
+        distribution: 'temurin'
 
-    # Step 3: Compile the Java program
-    - name: Run Java Program
+    - name: Compile the java program
       run: |
-        cd  src/main/java/com/example/App.java
-        javac src/main/java/com/example/App.java
+        mkdir output
+        javac -d output src/main/java/com/example/App.java
     
-    # Step 4: Run the java program
     - name: Run Java Program
-      run: |
-      cd src/main/java/com/example/App.java
-      ls
-      java com.example.App
+      run: java -cp output com.example.App
