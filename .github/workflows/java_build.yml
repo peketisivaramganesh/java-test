@@ -24,9 +24,12 @@ jobs:
     # Step 3: Compile the Java program
     - name: Run Java Program
       run: |
-        mkdir sample
-        javac -d sample src/main/java/com/example/App.java
+        cd  src/main/java/com/example/App.java
+        javac src/main/java/com/example/App.java
     
     # Step 4: Run the java program
     - name: Run Java Program
-      run: java -cp sample com.example.App
+      run: |
+      cd src/main/java/com/example/App.java
+      ls
+      java com.example.App
