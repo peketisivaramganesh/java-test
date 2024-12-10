@@ -1,9 +1,42 @@
 name: Run Java Program on Linux machine
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+    inputs:
+      components:
+        description: 'select which component to deploy'     
+        required: true
+        default: 'vpc' 
+        type: choice
+        options:
+        - vpc
+        - ec2
+      squad:
+        description: 'select which squad'     
+        required: true
+        default: 'shared' 
+        type: choice
+        options:
+        - shared
+        - cx
+        - ppm
+      environment:
+        description: 'select which environment'     
+        required: true
+        default: 'dev' 
+        type: choice
+        options:
+        - dev
+        - qa
+      state:
+        description: 'Plan or Apply'
+        required: true
+        default: 'plan'
+        type: choice
+        options:
+        - plan
+        - apply
+
 
 jobs:
   run_java_program:
